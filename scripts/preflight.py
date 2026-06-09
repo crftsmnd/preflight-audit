@@ -339,7 +339,8 @@ async def cmd_audit(query, json_mode=False):
         print(f"    Even if the description seems unrelated, read the full code.")
     else:
         print(f"{yellow('? No pre-existing solution found. Proceed with Phase 2.')}")
-        print(f"    Consider running: {bold('preflight.py hack \"'+query+'\"')}")
+        cmd_hint = 'preflight.py hack "' + query + '"'
+        print(f"    Consider running: {bold(cmd_hint)}")
         print(f"    And: {bold('preflight.py constraints auto')}")
     print(f"{bold('=== End Report ===')}")
     return None
@@ -510,7 +511,7 @@ def cmd_frustrated(json_mode=False):
     print(f"  {red('Stop iterating. Switch strategy entirely.')}")
     print(f"\n{blue(bold('Checklist:'))}")
     print(f"  1. {green('Step away for 5 minutes')}")
-    print(f"  2. {green('Run: preflight.py hack \"<goal>\"')}")
+    print("  2. " + green("Run: preflight.py hack <goal>"))
     print(f"  3. {green('Run: preflight.py constraints auto')}")
     print(f"  4. {green('List 3 approaches tried and why each failed')}")
     print(f"  5. {green('If all 3 were similar, try the OPPOSITE approach')}")
@@ -520,7 +521,7 @@ def cmd_frustrated(json_mode=False):
     print(f"  - If designing architecture -> ask 'what workaround?'")
     print(f"  - If using a library -> check raw HTTP")
     print(f"\n{red(bold('Run now:'))}")
-    print(f"  {yellow('preflight.py hack \"<goal>\"')}")
+    print("  " + yellow("Run: preflight.py hack <goal>"))
     print(f"  {yellow('preflight.py constraints auto')}")
     print(f"\n{bold('=== End Frustrated ===')}")
     return None
